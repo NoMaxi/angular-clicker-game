@@ -1,0 +1,19 @@
+.rankings-container {
+  max-width: 750px;
+  padding: 30px 0;
+
+  .empty-rankings-container {
+    color: darkslateblue;
+    font-size: 1.6rem;
+  }
+
+  .rankings-actions {
+    margin-top: 30px;
+
+    .reset-btn {
+      font-size: 1.5rem;
+      letter-spacing: 0.1rem;
+      min-height: 70px;
+    }
+  }
+}

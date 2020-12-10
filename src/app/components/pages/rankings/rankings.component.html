@@ -1,0 +1,31 @@
+<div class="rankings-container w-100 mx-auto">
+  <app-rankings-mode-list
+    *ngFor="let mode of rankedModes"
+    [gameMode]="mode"
+  ></app-rankings-mode-list>
+
+  <mat-card *ngIf="!wereAnyGamesPlayed" class="card w-100">
+    <mat-card-content>
+      <div class="empty-rankings-container text-bold
+                  flex-row justify-center align-center"
+      >
+        <span>No ranking tables found. Play games to earn a rank.</span>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <div
+    *ngIf="wereAnyGamesPlayed"
+    class="rankings-actions flex-row justify-center"
+  >
+    <button
+      name="reset-btn"
+      class="reset-btn"
+      color="accent"
+      mat-raised-button
+      (click)="resetRankings()"
+    >
+      Reset Rankings
+    </button>
+  </div>
+</div>

@@ -1,0 +1,72 @@
+@import '../../../assets/styles/global-variables';
+
+$toolbar-bg-color: #212121;
+$link-hover-color: #6bbcf1;
+$avatar-size: 55px;
+
+.mat-toolbar-single-row {
+  height: unset;
+}
+
+.toolbar {
+  background-color: $toolbar-bg-color;
+  height: $navbar-height;
+
+  a {
+    color: #fff;
+    font-size: 1.3rem;
+    font-weight: bold;
+    letter-spacing: 0.13rem;
+    transition: 0.2s ease-out;
+    text-decoration: none;
+
+    &:hover {
+      color: $link-hover-color;
+    }
+  }
+
+  .logo img {
+    object-fit: contain;
+    height: 100%;
+    width: 300px
+  }
+
+  &-nav {
+   list-style: none;
+   padding: 0;
+
+   li {
+     margin-left: 50px;
+
+     &:hover {
+       color: $link-hover-color;
+     }
+   }
+  }
+
+  .nav-active-link {
+    color: #e12ebc;
+  }
+
+  .profile-controls li {
+    margin-left: 40px;
+  }
+
+  .user-avatar {
+    &-img {
+      border-radius: 50%;
+      height: $avatar-size;
+      width: $avatar-size;
+    }
+
+    &-name {
+      color: goldenrod;
+      font-size: 1rem;
+      text-transform: initial;
+    }
+
+    &:hover span {
+      color: #dee5a8;
+    }
+  }
+}

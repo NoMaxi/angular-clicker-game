@@ -1,0 +1,31 @@
+<div class="result-container flex-row justify-center align-center">
+  <mat-card class="card w-100">
+    <mat-card-header class="justify-center">
+      <mat-card-title class="card-title text-center">
+        Game results
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="flex-col">
+        <div
+          class="result-message text-bold flex-col justify-center align-center"
+        >
+          <p class="result-message-text">{{ resultMessage }}</p>
+        </div>
+        <div class="result-actions flex-row justify-center align-center">
+          <button
+            name="reset-btn"
+            class="reset-btn"
+            color="primary"
+            mat-raised-button
+            (click)="playAgain()"
+          >
+            Play again
+          </button>
+        </div>
+
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+
