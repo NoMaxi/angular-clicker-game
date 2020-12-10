@@ -1,0 +1,22 @@
+@import '../../../../assets/styles/global-variables';
+
+.login-container {
+  max-width: 600px;
+  min-height: calc(100vh - #{$navbar-height});
+
+  .login-card {
+    margin-bottom: 80px;
+    padding: 30px 50px;
+
+    &-title {
+      color: darkslateblue;
+      margin-bottom: 32px;
+      padding-bottom: 20px;
+    }
+
+    &-subtitle {
+      color: #4c4b4b;
+      font-size: 1.5rem;
+    }
+  }
+}

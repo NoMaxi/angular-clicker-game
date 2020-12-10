@@ -1,0 +1,25 @@
+<div class="mode-container flex-row justify-center align-center">
+  <mat-card class="card w-100">
+    <mat-card-header class="justify-center">
+      <mat-card-title class="card-title text-center">
+        Game Mode
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-radio-group
+        class="flex-row justify-between"
+        aria-label="Select game mode"
+        [(ngModel)]="gameMode"
+        (change)="onModeChange()"
+        [disabled]="isRadioGroupDisabled"
+      >
+        <mat-radio-button
+          *ngFor="let mode of gameModes"
+          [value]="mode"
+        >
+          {{ mode }}
+        </mat-radio-button>
+      </mat-radio-group>
+    </mat-card-content>
+  </mat-card>
+</div>

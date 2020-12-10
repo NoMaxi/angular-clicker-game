@@ -1,1 +1,129 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'assets/styles/global-variables';
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  min-height: 100%;
+}
+
+body {
+  background: url('assets/images/game-bg.jpg') #fff center/cover no-repeat;
+  color: #051120;
+  font-family: $base-font-family;
+}
+
+.container {
+  max-width: 1000px;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.w-80 {
+  width: 80%;
+}
+
+.w-50 {
+  width: 50%;
+}
+
+.mx-auto {
+  margin: 0 auto;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+.text-underline {
+  text-decoration: underline;
+}
+
+.text-capitalize {
+  text-transform: capitalize;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-around {
+  justify-content: space-around;
+}
+
+.justify-evenly {
+  justify-content: space-evenly;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.mat-card-header .mat-card-header-text .mat-card-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 22px;
+  text-transform: capitalize;
+  text-shadow: 1px 1px 2px darkblue;
+
+  &.card-title {
+    color: darkslateblue;
+    font-size: 2rem;
+    margin-bottom: 25px;
+  }
+}
+
+.mat-card:not([class*=mat-elevation-z]) {
+  box-shadow:
+    3px 3px 5px 3px rgba(0, 0, 0, 0.2),
+    0 1px 1px 0 rgba(0, 0, 0, 0.14),
+    0 1px 3px 0 rgba(0, 0, 0, 0.12);
+}
+
+mat-card.mat-card {
+  background-color: cornsilk;
+  border-radius: 6px;
+  font-family: $base-font-family;
+  font-size: 1.2rem;
+  opacity: 0.92;
+  padding: 30px;
+}
+
+mat-card.mat-card.card {
+  padding: 20px 40px 25px;
+}
+
+.mat-button-wrapper {
+  color: #fff;
+}
+
+.mat-error strong {
+  font-weight: bold;
+  color: red;
+}

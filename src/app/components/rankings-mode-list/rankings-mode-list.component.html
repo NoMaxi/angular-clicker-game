@@ -1,0 +1,28 @@
+<div class="rankings-list-container flex-row justify-center align-center">
+  <mat-card class="card w-100">
+    <mat-card-header class="rankings-card-header justify-center">
+      <mat-card-title class="card-title text-center">
+        {{ gameMode }}
+      </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <table class="rankings-table w-100 text-center">
+        <thead class="text-bold">
+          <tr>
+            <th>Rank</th>
+            <th>Username</th>
+            <th>Result</th>
+            <th>Click speed</th>
+          </tr>
+        </thead>
+        <tbody>
+          <app-rankings-item
+            *ngFor="let ranking of rankings"
+            [ranking]="ranking"
+          ></app-rankings-item>
+        </tbody>
+      </table>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,0 +1,5 @@
+<div class="game-container w-100 mx-auto">
+  <app-game-mode></app-game-mode>
+  <app-game-clicker [username]="user.name"></app-game-clicker>
+  <app-game-result *ngIf="isGameFinished"></app-game-result>
+</div>
