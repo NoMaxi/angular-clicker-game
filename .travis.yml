@@ -1,0 +1,18 @@
+language: node_js
+node_js:
+- '10'
+
+before_install:
+- npm install -g @angular/cli
+
+install: npm install
+
+branches:
+  only:
+  - master
+
+deploy:
+  provider: heroku
+  app: clicker-heroes
+  api_key:
+    secure: FrK0sgGdizb/vX97Ifbv4oMqFqqeFflMm2J4tBBDMXNTzrFvIg31AIC9lkIhmIZXOlpkc3bZa4Qasw2+uu+0sXSftrlDRI9kmjB4PMe5FTNT2bHGQhnCRI3ShvsXyelnVsjBzIZEBKO2qd+NdCBQKbfpk5LnELWY7vSx4Ul+5AXrAAoHdCsL8felQkDL5nkh3Qe47Tutotmkq4502XupVFYWu///ftTzTC7+wcnpinD+3Aw0/VSNWJDXwsk/Q+4MzpfXS/9fa1LeT9g3EvAbHg9iUGhnwOnjePPF+iJMwg000iIy8kMd/bx/ZLLe5h12WfAMb+aDjlacaxzyw+h6Z1fO1BNQyc0txyaqbzD1trKEGEQC8kmMcj7enBo05bIixGtN//HqtkJj5u/3stlQ986QagU/0azpHZOGvDnIMgK+/dEn67DcqbheeQrgrlITq21Bp8HvXzNpLRUQbvXoDgDQFBzBrQSEJqAWAWPtxD+azs/3y20ydOSRTlQmgmikTnMujM5vpRsFm+1P/SyofUE8zTVaj1nDge+xapcKucHUVhscIDf4ZlF+17X7FKnxJe8bvkEN5/sU/JXXjK7e+B/8+n/jeUFdPnHYDx3++z4TNPxbBMXYre/FDwqoWaNCvaMeUfxYa5k+LVGWeAmcqUyoF3GbfZwNk1ADIZhgARI=
