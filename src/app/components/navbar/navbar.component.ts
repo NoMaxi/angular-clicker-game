@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 
 import { emptyUserData } from '../../helpers/emptyUserData';
 import { User } from '../../interfaces/user';
@@ -10,7 +11,8 @@ import { CurrentUserStoreService } from 'src/app/services/current-user-store.ser
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit, OnDestroy {
+  private subscription: Subscription = new Subscription();
   isLoggedIn: boolean;
   user: User;
 
@@ -20,13 +22,18 @@ export class NavbarComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.currentUserStoreService.userWatcher.subscribe((user) => {
+    const sub = this.currentUserStoreService.userWatcher.subscribe((user) => {
       if (user.id) {
         this.user = user;
       }
 
       this.isLoggedIn = this.authService.isLoggedIn;
     }, (err) => console.error(err));
+    this.subscription.add(sub);
+  }
+
+  public ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
   onLogout(): void {

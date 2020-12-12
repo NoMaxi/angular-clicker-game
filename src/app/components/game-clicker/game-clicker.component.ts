@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 
 import { Game } from '../../interfaces/game';
 import { GameProcess } from '../../interfaces/game-process';
@@ -11,8 +12,9 @@ import { GameService } from '../../services/game.service';
   templateUrl: './game-clicker.component.html',
   styleUrls: ['./game-clicker.component.scss']
 })
-export class GameClickerComponent implements OnInit {
+export class GameClickerComponent implements OnInit, OnDestroy {
   @Input() username: string;
+  private subscription: Subscription = new Subscription();
   game: Game;
   timeLeft: number;
   intervalId: number;
@@ -24,11 +26,10 @@ export class GameClickerComponent implements OnInit {
     private currentGameStoreService: CurrentGameStoreService,
     private userService: UserService,
     private gameService: GameService
-  ) {
-  }
+  ) { }
 
   ngOnInit(): void {
-    this.currentGameStoreService.gameWatcher
+    const sub1 = this.currentGameStoreService.gameWatcher
       .subscribe((game: Game) => {
         if (game) {
           this.game = game;
@@ -39,7 +40,7 @@ export class GameClickerComponent implements OnInit {
         }
       }, (err) => console.error(err));
 
-    this.currentGameStoreService.gameProcessWatcher
+    const sub2 = this.currentGameStoreService.gameProcessWatcher
       .subscribe(({ isFinished, isStarted }: GameProcess) => {
         this.isGameStarted = isStarted;
         this.isGameFinished = isFinished;
@@ -50,6 +51,14 @@ export class GameClickerComponent implements OnInit {
           this.clicksMade = 0;
         }
       }, (err) => console.error(err));
+
+    this.subscription.add(sub1);
+    this.subscription.add(sub2);
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+    clearInterval(this.intervalId);
   }
 
   playGame(): void {
